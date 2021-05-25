@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- hibernate- configuration是连接配置文件的根元素 -->
+<hibernate-configuration>
+    <session-factory>
+        <!--数据库连接配置-->
+        <!-- 指定连接数据库所用的驱动 -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!-- 指定连接数据库的url，hibernate连接的数据库名 -->
+        <property name="connection.url">jdbc:mysql://localhost:3306/manager_sys?useUnicode=true&amp;characterEncoding=utf-8
+        </property>
+        <!-- 指定连接数据库的用户名 -->
+        <property name="connection.username">root</property>
+        <!-- 指定连接数据库的密码 -->
+        <property name="connection.password">123456</property>
+
+
+        <!--设置c3p0数据源配置-->
+        <!-- 指定连接池里最大连接数 -->
+        <property name="hibernate.c3p0.max_size">20</property>
+        <!-- 指定连接池里最小连接数 -->
+        <property name="hibernate.c3p0.min_size">1</property>
+        <!-- 指定连接池里连接的超时时长 -->
+        <property name="hibernate.c3p0.timeout">5000</property>
+        <!-- 指定连接池里最大缓存多少个Statement对象 -->
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <!--指定连接池检测线程间隔时长-->
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+        <!--指定连接池批量创建连接数-->
+        <property name="hibernate.c3p0.acquire_increment">2</property>
+        <!--指定连接池超时连接是否销毁-->
+        <property name="hibernate.c3p0.validate">true</property>
+
+        <!--hibernate环节配置-->
+        <!-- 指定数据库方言 -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- 根据需要自动创建数据表 -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- 显示Hibernate持久化操作所生成的SQL -->
+        <property name="show_sql">true</property>
+        <!-- 将SQL脚本进行格式化后再输出 -->
+        <property name="hibernate.format_sql">true</property>
+
+
+        <!-- 罗列所有的映射文件 -->
+        <!--<mapping resource="com/lovo/entity/StudentEntity.hbm.xml"/>-->
+        <!--<mapping resource="com/lovo/entity/FamilyEntity.hbm.xml"/>-->
+        <!--<mapping resource="com/lovo/entity/MemberEntity.hbm.xml"/>-->
+        <!--<mapping resource="com/lovo/entity/IdCardEntity.hbm.xml"/>-->
+        <!--<mapping resource="com/lovo/entity/PeopleEntity.hbm.xml"/>-->
+        <!--<mapping resource="com/lovo/entity/BikeEntity.hbm.xml"/>-->
+        <!--<mapping resource="com/lovo/entity/PersonEntity.hbm.xml"/>-->
+
+
+        <!--配置注解映射-->
+        <mapping class="com.lovo.bean.UserBean"/>
+        <mapping class="com.lovo.bean.AddressBean"/>
+        <!--<mapping class="com.lovo.vo.UserVo"/>-->
+
+    </session-factory>
+</hibernate-configuration>
